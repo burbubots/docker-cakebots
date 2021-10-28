@@ -1,0 +1,12 @@
+{
+    "name": "burbubots/docker-cakebots",
+    "description": "Docker installer for burbubots/cakebots",
+    "homepage": "https://cakephp.org",
+    "type": "project",
+    "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true
+    }
+}
