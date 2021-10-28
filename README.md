@@ -17,7 +17,7 @@ Execute ./crear_docker to create the images and containers<br />
 Let your system create two debian images and two containers, named 'dbbots' and 'webbots'. <br />
 You can enter in the container 'webbots' with the shell command 'docker exec -it webbots bash' or you can use the script this way:'./entra webbots'<br />
 The shell 'mc' is installed, so you can edit and execute commands with ease inside the container. <br /><br />
-The application runs initially in http://localhost:8800/bots/tadeaccounts<br />
+The application runs initially in http://localhost:8800/bots/tradeaccounts<br />
 Another routes are: <br/>
 http://localhost:8800/adminer/?server=dbbots&username=cakeuser&db=trading (password 'cakepass') for the Adminer application, a front-end for MariaDB and the database.<br />
 http://localhost:8800/icecoder for the ICECoder app, an on-line editor. It needs write access for the owner and group of Apache (www-data:www-data) 
