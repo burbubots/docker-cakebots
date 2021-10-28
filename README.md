@@ -24,11 +24,11 @@ http://localhost:8800/icecoder for the ICECoder app, an on-line editor. It needs
 so if you are editing directly from your system you might change the permissions and ICECoder will fail its writing access. <br />
 
 <br />
-A folder name 'web' appears after installation. It's a shared folder with the container 'webbots' and contains the full project from https://github.com/burbubots/cakebots <br />
+A folder with name 'web' appears after installation. It's a shared folder with the container 'webbots' and contains the full project from https://github.com/burbubots/cakebots <br />
 You can edit files in this folder and the changes are seen in the application.  <br /> <br /><br />
 Resetting the project:<br />
 Use the script 'reset.sh' to stop and delete the docker containers. All the information of the database will be lost, so maybe you want backup before doing this.<br />
-If you only want to stop the containers use 'dockerstop webbots'.<br />
+If you only want to stop the containers use 'docker stop webbots'.<br />
 The next step for resseting is deleting the docker images. Use 'docker images' to list the images, copy the IMAGE_ID and do 'docker rmi [IMAGE_ID]'.<br />
 At last, you can remove the folder 'web' for a full clean restart from the repositories in git o for tidy your system. <br /><br />
 Some notes: <br />
