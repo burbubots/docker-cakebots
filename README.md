@@ -5,11 +5,12 @@ another one containing an Apache Web Server with the framework CakePHP 4.3 and t
 
 
 Install instructions:<br />
-Install git or download package zip.<br />
+This is for docker, so you REALLY need docker and docker-compose. It can be use in Windows or MAC systems. Read the fine tutorials for this.<br />
+Install git or download ZIP package.<br />
 <br />
 
 (Debian/Ubuntu)<br /> 
-sudo apt-get install git <br />
+sudo apt-get install docker docker-compose git <br />
 git clone https://github.com/burbubots/docker-cakebots.git <br />
 <br />
 Execute ./crear_docker to create the images and containers<br />
