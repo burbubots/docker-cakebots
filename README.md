@@ -32,5 +32,5 @@ If you only want to stop the containers use 'docker stop webbots'.<br />
 The next step for resseting is deleting the docker images. Use 'docker images' to list the images, copy the IMAGE_ID and do 'docker rmi [IMAGE_ID]'.<br />
 At last, you can remove the folder 'web' for a full clean restart from the repositories in git o for tidy your system. <br /><br />
 Some notes: <br />
-You can set the containers for start with your system start just un-commenting the lines with 'restart: always' in the file docker-compose.yml. <br />
+You can set the containers for start with your system start just un-commenting the lines with 'restart: always' in the file docker-compose.yml and re-running './crear_docker'. <br />
 
