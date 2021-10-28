@@ -30,8 +30,8 @@ CREATE TABLE `tradeasociados` (
   `acumusd` double NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `associatedAccount` (`associatedAccount`),
-  UNIQUE KEY `tradeaccount_id_tradecoin_id` (`tradeaccount_id`,`tradecoin_id`),
   KEY `tradecoin_id` (`tradecoin_id`),
+  KEY `tradeaccount_id` (`tradeaccount_id`),
   CONSTRAINT `tradeasociados_ibfk_1` FOREIGN KEY (`tradecoin_id`) REFERENCES `tradecoins` (`id`),
   CONSTRAINT `tradeasociados_ibfk_2` FOREIGN KEY (`tradeaccount_id`) REFERENCES `tradeaccounts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -64,4 +64,4 @@ CREATE TABLE `tradecoins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- 2021-10-28 14:20:51
+-- 2021-10-28 20:18:29
