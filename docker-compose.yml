@@ -1,0 +1,31 @@
+version: '3.2'
+services:
+
+  dbbots:
+    image: mariadb:latest
+    container_name: dbbots
+    build: ./inicial_db
+#    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootpass"
+      MYSQL_DATABASE: "trading"
+      MYSQL_USER: "cakeuser"
+      MYSQL_PASSWORD: "cakepass"
+    volumes:
+#      - ./mariadb_data:/var/lib/mysql:rw
+      - ./database:/docker-entrypoint-initdb.d
+
+  webbots:
+    image: apache
+    container_name: webbots
+    build: ./inicial_web
+#    restart: always
+    volumes:
+     - ./web:/var/www/html/traslada
+    ports:
+      - "8800:80"
+    depends_on:
+      - dbbots
+
+
+

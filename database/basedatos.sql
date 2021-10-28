@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS trading;
+
+GRANT ALL PRIVILEGES ON trading.* TO 'cakeuser'@'%';
+
+FLUSH PRIVILEGES;
+
+
