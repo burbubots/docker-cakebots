@@ -5,7 +5,7 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-use trading;
+USE `trading`;
 
 DROP TABLE IF EXISTS `tradeaccounts`;
 CREATE TABLE `tradeaccounts` (
@@ -18,7 +18,9 @@ CREATE TABLE `tradeaccounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `tradeaccounts` (`id`, `account`, `cuenta`, `net`, `notas`) VALUES
-(1,	'C1CEZyR4mSqMYmHmm7iEZYeJaew3GJzM9BVXWJmVZCcJ',	'cuenta',	'Solana',	'');
+(1,	'C1CEZyR4mSqMYmHmm7iEZYeJaew3GJzM9BVXWJmVZCcJ',	'cuenta',	'Solana',	''),
+(2,	'AE1fb47FdhxUqsVJi6bjUAAixSXoxHPaB245wFs49JNU',	'cuenta fuertecita',	'Solana',	''),
+(3,	'ByiAbN9MJhfQKGK5WJrfgko6XS88qqERQVRLWZTsvyTf',	'cuenta fuertecita 2',	'Solana',	'');
 
 DROP TABLE IF EXISTS `tradeasociados`;
 CREATE TABLE `tradeasociados` (
@@ -28,6 +30,7 @@ CREATE TABLE `tradeasociados` (
   `associatedAccount` varchar(200) NOT NULL,
   `balance` double NOT NULL DEFAULT 0,
   `acumusd` double NOT NULL DEFAULT 0,
+  `delegate` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `associatedAccount` (`associatedAccount`),
   KEY `tradecoin_id` (`tradecoin_id`),
@@ -64,4 +67,19 @@ CREATE TABLE `tradecoins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- 2021-10-28 20:18:29
+DROP TABLE IF EXISTS `tradedelegates`;
+CREATE TABLE `tradedelegates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `delegate` varchar(100) NOT NULL,
+  `tradeaccount_id` int(11) NOT NULL,
+  `tradeasociado_id` int(11) NOT NULL,
+  `cantidad` double NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `tradeaccount_id` (`tradeaccount_id`),
+  KEY `tradeasociado_id` (`tradeasociado_id`),
+  CONSTRAINT `tradedelegates_ibfk_1` FOREIGN KEY (`tradeaccount_id`) REFERENCES `tradeaccounts` (`id`),
+  CONSTRAINT `tradedelegates_ibfk_2` FOREIGN KEY (`tradeasociado_id`) REFERENCES `tradeasociados` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 2021-10-29 12:32:08
